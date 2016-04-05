@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
-metadata: 
-  labels: 
-    name: hdpkub
-  name: hdpkub
-spec: 
+metadata:
+  labels:
+    name: jenkub
+  name: jenkub
+spec:
   ports:
     # the port that this service should serve on
     - port: 8080
   # label keys and values that must match in order to receive traffic for this service
-  selector: 
-    name: hdpkub
+  selector:
+    name: jenkube
   type: NodePort
