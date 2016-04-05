@@ -1,6 +1,6 @@
 # FROM jenkins:1.642.4
 FROM jenkins
-LABEL version="1.2"
+LABEL version="1.3"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
@@ -8,9 +8,11 @@ USER root
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install -y curl htop man mc net-tools unzip vim wget && \
+    echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers && \
     rm -rf /var/lib/apt/lists/*
 
-RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+# RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+
 USER jenkins
 
 COPY plugins.txt ${JENKINS_HOME}/plugins.txt
