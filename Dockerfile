@@ -7,7 +7,7 @@ RUN apt-get update \
       && apt-get install -y sudo \
       && rm -rf /var/lib/apt/lists/*
 USER jenkins
-RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+# RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 COPY plugins.txt /var/jenkins_home/plugins.txt
 RUN /usr/local/bin/plugins.sh /var/jenkins_home/plugins.txt
