@@ -19,11 +19,6 @@ USER jenkins
 COPY plugins.txt ${JENKINS_HOME}/plugins.txt
 RUN /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
 
-# Add files.
-#COPY .bashrc /root/.bashrc
-COPY run.sh /run.sh
-RUN chmod -v +x /run.sh
-
 # Adding default Jenkins Jobs
 # COPY jobs/dsl-seed-job.xml ${JENREF}/jobs/dsl-seed-job/config.xml
 
@@ -33,6 +28,11 @@ RUN chmod -v +x /run.sh
 # Jenkins settings
 COPY config/*.xml ${JENREF}/
 
+USER root
+# Add files.
+#COPY .bashrc /root/.bashrc
+COPY run.sh /run.sh
+RUN chmod -v +x /run.sh
 # for main web interface:
 EXPOSE 8080
 # will be used by attached slave agents:
