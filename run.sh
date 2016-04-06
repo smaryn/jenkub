@@ -1,11 +1,13 @@
 #!/bin/bash
 # version 1.1.1
-
+RESOLV="/etc/resolv.conf"
 LOGFILE="/var/log/run.log"
 DATE="$( which date )"
 
 fix_resolv_conf() {
-  echo 'nameserver 8.8.8.8' > /etc/resolv.conf | tee -a $LOGFILE
+  if [ -f $RESOLV  ]; then
+        echo 'nameserver 8.8.8.8' > $RESOLV
+  fi
 }
 
 main() {
