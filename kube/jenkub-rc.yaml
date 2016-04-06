@@ -19,13 +19,8 @@ spec:
         role: leader
     spec:
       containers:
-      - name: jenkub
-        image: {{leader}}
-        command:
-        - /usr/local/bin/start.sh
-        env:
-        - name: GCS_RESTORE_URL
-          value: DISABLED
+      - name: jenkub-http
+        image: singen/jenkub
         ports:
         - name: jenkub-http
           containerPort: 8080

@@ -16,7 +16,7 @@ spec:
     port: 50000
     targetPort: jenkube-disc
     protocol: TCP
-    nodePort: 50000
+    nodePort: 31500
   selector:
     name: jenkube
     role: leader

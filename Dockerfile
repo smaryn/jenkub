@@ -27,12 +27,12 @@ RUN /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
 # Jenkins settings
 COPY config/*.xml ${JENREF}/
 
-USER root
+# USER root
 # Add files.
 #COPY .bashrc /root/.bashrc
-COPY run.sh /run.sh
-RUN chmod -v +x /run.sh
+# COPY run.sh /run.sh
+# RUN chmod -v +x /run.sh
 
 # Define default command.
-CMD ["/run.sh"]
+# CMD ["/run.sh"]
 # CMD ["bash"]
