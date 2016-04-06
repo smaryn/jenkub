@@ -1,6 +1,6 @@
 # FROM jenkins:1.642.4
 FROM jenkins
-LABEL version="1.5"
+LABEL version="1.6"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
@@ -8,7 +8,6 @@ USER root
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install -y htop mc net-tools sudo && \
-    # apt-get install -y curl htop mc net-tools sudo unzip vim wget && \
     echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers && \
     rm -rf /var/lib/apt/lists/*
 
@@ -33,10 +32,7 @@ USER root
 #COPY .bashrc /root/.bashrc
 COPY run.sh /run.sh
 RUN chmod -v +x /run.sh
-# for main web interface:
-EXPOSE 8080
-# will be used by attached slave agents:
-# EXPOSE 50000
+
 # Define default command.
 CMD ["/run.sh"]
 # CMD ["bash"]

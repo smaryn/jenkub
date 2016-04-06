@@ -10,7 +10,7 @@ fix_resolv_conf() {
 
 main() {
   touch $LOGFILE
-  echo '$($DATE +"%T") cleaning log file' > $LOGFILE
+  echo [$($DATE +"%T")] cleaning log file > $LOGFILE
   fix_resolv_conf
 
    while true; do

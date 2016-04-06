@@ -15,4 +15,6 @@ spec:
 
       ports:
         - containerPort: 8080
-          name: webjenkins
+          name: jenkub-http
+        - containerPort: 50000
+          name: jenkub-disco

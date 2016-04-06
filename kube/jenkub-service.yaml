@@ -6,9 +6,15 @@ metadata:
   name: jenkub
 spec:
   ports:
-    # the port that this service should serve on
-    - port: 8080
-  # label keys and values that must match in order to receive traffic for this service
+  - name: ui
+    port: 8080
+    targetPort: jenkub-http
+    protocol: TCP
+  - name: jenkub-disc
+    port: 50000
+    targetPort: jenkube-disc
+    protocol: TCP
   selector:
     name: jenkube
+    role: leader
   type: NodePort

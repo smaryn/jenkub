@@ -1,0 +1,33 @@
+---
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: jenkub-leader
+  labels:
+    name: jenkub
+    role: leader
+spec:
+  replicas: 1
+  selector:
+    name: jenkub
+    role: leader
+  template:
+    metadata:
+      name: jenkub-leader
+      labels:
+        name: jenkub
+        role: leader
+    spec:
+      containers:
+      - name: jenkub
+        image: {{leader}}
+        command:
+        - /usr/local/bin/start.sh
+        env:
+        - name: GCS_RESTORE_URL
+          value: DISABLED
+        ports:
+        - name: jenkub-http
+          containerPort: 8080
+        - name: jenkub-disco
+          containerPort: 50000
