@@ -1,6 +1,6 @@
 # FROM jenkins:1.642.4
 FROM jenkins
-LABEL version="1.4"
+LABEL version="1.5"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
@@ -19,6 +19,11 @@ USER jenkins
 COPY plugins.txt ${JENKINS_HOME}/plugins.txt
 RUN /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
 
+# Add files.
+#COPY .bashrc /root/.bashrc
+COPY run.sh /run.sh
+RUN chmod -v +x /run.sh
+
 # Adding default Jenkins Jobs
 # COPY jobs/dsl-seed-job.xml ${JENREF}/jobs/dsl-seed-job/config.xml
 
@@ -33,4 +38,5 @@ EXPOSE 8080
 # will be used by attached slave agents:
 # EXPOSE 50000
 # Define default command.
-CMD ["bash"]
+CMD ["/run.sh"]
+# CMD ["bash"]

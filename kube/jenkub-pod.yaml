@@ -8,8 +8,8 @@ spec:
   containers:
     - resources:
         limits :
-          cpu: 4
-          memory: 8192Mi
+          cpu: 2
+          memory: 2048Mi
       image: singen/jenkub
       name: jenkub
 
