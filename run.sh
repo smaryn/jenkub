@@ -4,9 +4,7 @@ LOGFILE="/var/log/run.log"
 DATE="$( which date )"
 
 fix_resolv_conf() {
-  if [ -f /etc/resolv.conf  ]; then
         echo 'nameserver 8.8.8.8' > /etc/resolv.conf
-  fi
 }
 
 main() {
