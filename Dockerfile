@@ -1,6 +1,6 @@
 # FROM jenkins:1.642.4
 FROM jenkins
-LABEL version="1.7"
+LABEL version="1.8"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
@@ -12,6 +12,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+COPY run.sh /run.sh
+RUN chmod -v +x /run.sh
+CMD ["/run.sh"]
 
 USER jenkins
 
@@ -26,13 +29,3 @@ RUN /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
 ############################################
 # Jenkins settings
 COPY config/*.xml ${JENREF}/
-
-# USER root
-# Add files.
-#COPY .bashrc /root/.bashrc
-# COPY run.sh /run.sh
-# RUN chmod -v +x /run.sh
-
-# Define default command.
-# CMD ["/run.sh"]
-# CMD ["bash"]
