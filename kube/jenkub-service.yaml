@@ -5,16 +5,18 @@ metadata:
     name: jenkub
   name: jenkub
 spec:
+  type: NodePort
   ports:
   - name: ui
     port: 8080
     targetPort: jenkub-http
     protocol: TCP
+    nodePort: 31080
   - name: jenkub-disc
     port: 50000
     targetPort: jenkube-disc
     protocol: TCP
+    nodePort: 50000
   selector:
     name: jenkube
     role: leader
-  type: NodePort
