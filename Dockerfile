@@ -12,9 +12,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
-COPY run.sh /run.sh
-RUN chmod -v +x /run.sh
-CMD ["/run.sh"]
+# COPY run.sh /run.sh
+# RUN chmod -v +x /run.sh
+# CMD ["/run.sh"]
 
 USER jenkins
 
