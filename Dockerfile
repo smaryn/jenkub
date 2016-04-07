@@ -1,6 +1,6 @@
 # FROM jenkins:1.642.4
 FROM jenkins
-LABEL version="1.8"
+LABEL version="1.9"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
@@ -10,11 +10,6 @@ RUN apt-get update && \
     apt-get install -y htop mc net-tools sudo && \
     echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers && \
     rm -rf /var/lib/apt/lists/*
-
-# RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
-# COPY run.sh /run.sh
-# RUN chmod -v +x /run.sh
-# CMD ["/run.sh"]
 
 USER jenkins
 

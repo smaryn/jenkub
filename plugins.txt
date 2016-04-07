@@ -7,7 +7,7 @@ rebuild:1.25
 jobConfigHistory:2.13
 plugin-usage-plugin:0.3
 groovy:1.29
-job-dsl:1.44
+job-dsl:1.45
 github-api:1.72.1
 github:1.18.1
 kubernetes:

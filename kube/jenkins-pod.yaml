@@ -6,7 +6,7 @@ metadata:
     name: jenkins
 spec:
   containers:
-      name: jenkins
+    - name: jenkins
       image: singen/jenkub
       ports:
         - name: ui
