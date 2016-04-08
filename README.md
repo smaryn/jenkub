@@ -36,3 +36,21 @@ Select plugins you want to update and complete updating with Jenkins restart.
 
 Click "create new jobs" link in welcome screen, choose "Freestyle project" and name it somehow
 ![seed_jod](imgs/job_create_1.png)
+
+Choose "Use the provided DSL script" and paste file [dsl-seed-job-simple.goovy](jobs/dsl-seed-job-simple.groovy)
+content to the form:
+![create_job_1](imgs/job_create_2.png)
+
+NOTE: In the seed job we creating regular job "DSL-Tutorial-1" which clones git repository from `giturl ` on the described in `triggers` section schedule and accomplish task described in `steps` (just printing "Step N1", but you may define any command or script).
+Possible options are documented at
+[Jenkins Job DSL API](https://jenkinsci.github.io/job-dsl-plugin/) resource and this manual is quite comprehensive.
+
+You'll get job creation result page with the generated job name in the "Generated item" section%
+![project_job_dsl_1](imgs/project_job_dsl_1.png)
+
+Click "Build Now" and check console output - it should look like this:
+![job_1_output](imgs/job_1_console_output.png)
+
+Go "Back to Project" then "Back to Dashboard" and checkout generated job "DSL-Tutorial-1-Test"
+![seeds_jobs](imgs/seed_n_generated_jobs.png)
+The "DSL-Tutorial-1" job has been generated from our DSL seed job "job-dsl-1" and should run as scheduled in `triggers` section of seed job or you may start it manually by pressing on "Build Now" option.
