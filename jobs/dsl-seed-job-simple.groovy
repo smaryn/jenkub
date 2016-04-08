@@ -6,7 +6,7 @@ job('DSL-Tutorial-1-Test') {
         git(giturl)
     }
     triggers {
-        scm('*/3 * * * *')
+        scm('*/15 * * * *')
     }
     steps {
           shell('echo "Step N1"')

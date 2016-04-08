@@ -31,3 +31,8 @@ Open web browser and type Kubernetes node IP address and TCP port noticed at 1.2
 
 Go to "Manage Jenkins" - "Plugin Manager".
 Select plugins you want to update and complete updating with Jenkins restart.
+
+#### 2.3 Create simple Jenkins DSL seed job
+
+Click "create new jobs" link in welcome screen, choose "Freestyle project" and name it somehow
+![seed_jod](imgs/job_create_1.png)
