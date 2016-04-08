@@ -43,7 +43,9 @@ content to the form:
 
 NOTE: In the seed job we creating regular job "DSL-Tutorial-1" which clones git repository from `giturl ` on the described in `triggers` section schedule and accomplish task described in `steps` (just printing "Step N1", but you may define any command or script).
 Possible options are documented at
-[Jenkins Job DSL API](https://jenkinsci.github.io/job-dsl-plugin/) resource and this manual is quite comprehensive.
+<a href="https://jenkinsci.github.io/job-dsl-plugin/" target="_blank">Jenkins Job DSL API</a> resource and this manual is quite comprehensive.
+[Jenkins Job DSL API](https://jenkinsci.github.io/job-dsl-plugin/)
+
 
 You'll get job creation result page with the generated job name in the "Generated item" section%
 ![project_job_dsl_1](imgs/project_job_dsl_1.png)
