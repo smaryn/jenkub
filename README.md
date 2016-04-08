@@ -22,7 +22,7 @@ NOTE: if you want to attach build slave servers **through JNLP (Java Web Start)*
 kubectl logs jenkins
 ```
 
-## 2. Jenkins usage
+## 2. DSL Jobs Usage
 #### 2.1 Connect to Jenkins UI
 Open web browser and type Kubernetes node IP address and TCP port noticed at 1.2 stage. You might see Jenkinse welcome page as below:
 ![welcome](imgs/jenkins_welcome.png)
@@ -53,4 +53,16 @@ Click "Build Now" and check console output - it should look like this:
 
 Go "Back to Project" then "Back to Dashboard" and checkout generated job "DSL-Tutorial-1-Test"
 ![seeds_jobs](imgs/seed_n_generated_jobs.png)
-The "DSL-Tutorial-1" job has been generated from our DSL seed job "job-dsl-1" and should run as scheduled in `triggers` section of seed job or you may start it manually by pressing on "Build Now" option.
+
+The "DSL-Tutorial-1" job has been generated from our DSL seed job "job-dsl-1" and should run as scheduled in `triggers` section of seed  job or you may start it manually by pressing on "Build Now" option.
+
+Results can be observed in the `Console Output` and should contain **Finished: SUCCESS** line:
+![job_out](imgs/job_output_1.png)
+
+#### 2.4 Create Jenkins DSL seed job with loop
+
+Create new seed DSL job and paste [dsl-seed-job-loop.groovy](jobs/dsl-seed-job-loop.groovy) content to "Use the provided DSL script" form. In this job we manage the Jenkins to create several jobs with the index number in the name.
+Now if you build it you'll get a number of generated jobs in the Dashboard:
+![dsl-loop-jobs](imgs/dsl-loop-jobs.png)
+
+And all of those jobs will run with parameters, schedules, credentials, commands or other handles defined in the loop.
