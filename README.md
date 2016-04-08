@@ -61,7 +61,7 @@ Results can be observed in the `Console Output` and should contain **Finished: S
 
 #### 2.4 Create Jenkins DSL seed job with loop
 
-Create new seed DSL job and paste [dsl-seed-job-loop.groovy](jobs/dsl-seed-job-loop.groovy) content to "Use the provided DSL script" form. In this job we manage the Jenkins to create several jobs with the index number in the name.
+Create new seed DSL job and paste [dsl-seed-job-loop.groovy](jobs/dsl-seed-job-loop.groovy) content to "Use the provided DSL script" form. In this job we manage Jenkins to create several jobs with the index number in the name.
 Now if you build it you'll get a number of generated jobs in the Dashboard:
 ![dsl-loop-jobs](imgs/dsl-loop-jobs.png)
 
