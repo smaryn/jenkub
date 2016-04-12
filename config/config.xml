@@ -14,7 +14,32 @@
   <jdks/>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
-  <clouds/>
+  <clouds>
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@0.6">
+      <name>VMKubernetesCluster</name>
+      <templates>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <name>jnlp slave</name>
+          <image>jenkinsci/jnlp-slave</image>
+          <privileged>false</privileged>
+          <alwaysPullImage>false</alwaysPullImage>
+          <command></command>
+          <args></args>
+          <remoteFs>/home/jenkins</remoteFs>
+          <instanceCap>2147483647</instanceCap>
+          <label>kubernetes</label>
+          <nodeSelector></nodeSelector>
+          <volumes/>
+          <envVars/>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+      </templates>
+      <serverUrl>http://big-kube1.ea.intropro.com:8080</serverUrl>
+      <skipTlsVerify>true</skipTlsVerify>
+      <namespace>default</namespace>
+      <containerCap>10</containerCap>
+      <retentionTimeout>5</retentionTimeout>
+    </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
+  </clouds>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>

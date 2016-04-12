@@ -10,7 +10,8 @@ groovy:1.29
 job-dsl:1.45
 github-api:1.72.1
 github:1.18.1
-kubernetes:
+durable-task:1.9
+kubernetes:0.6
 plain-credentials:1.1
 cloudbees-credentials:3.3
 config-file-provider:2.10.1

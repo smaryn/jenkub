@@ -4,11 +4,11 @@
 
 <img src="imgs/jenkins_logo.png"/>
 
-## 1. Kubernetes pod and service for Jenkins
+## 1. Kubernetes ReplicationController and service for Jenkins
 
-#### 1.1 Create Kubernetes pod for Jenkins (master) container using [jenkins-pod.yaml](/kube/jenkins-pod.yaml):
+#### 1.1 Create Kubernetes ReplicationController for Jenkins (master) container using [jenkins-rc.yaml](/kube/jenkins-rc.yaml):
 ```bash
-kubectl create -f kube/jenkins-pod.yaml
+kubectl create -f kube/jenkins-rc.yaml
 ```
 #### 1.2 Create Kubernetes service for Jenkins using [jenkins-service.yaml](/kube/jenkins-service.yaml)
 NOTE: At this stage in the command output you should notice the TCP ports which are assigned for Jenkins UI and discovery services:
