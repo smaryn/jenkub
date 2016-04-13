@@ -36,7 +36,7 @@
       <serverUrl>http://big-kube1.ea.intropro.com:8080</serverUrl>
       <skipTlsVerify>true</skipTlsVerify>
       <namespace>default</namespace>
-      <jenkinsUrl>http://jenkins.kube.ea.intropro.com:8080/</jenkinsUrl>
+      <jenkinsUrl>http://jenkins.kube.ea.intropro.com:38080/</jenkinsUrl>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
     </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
