@@ -11,9 +11,9 @@ spec:
     port: 8080
     targetPort: ui
     protocol: TCP
-  - name: discovery
+  - name: discover
     port: 50000
-    targetPort: discovery
+    targetPort: discover
     protocol: TCP
   externalIPs:
     - 198.18.26.31

@@ -23,5 +23,5 @@ spec:
         ports:
         - name: ui
           containerPort: 8080
-        - name: jdescovery
+        - name: descover
           containerPort: 50000

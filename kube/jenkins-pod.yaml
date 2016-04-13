@@ -12,7 +12,7 @@ spec:
         - name: ui
           containerPort: 8080
           # hostPort: 8080
-        - name: discovery
+        - name: discover
           containerPort: 50000
           # hostPort:50000
   #     volumeMount:
