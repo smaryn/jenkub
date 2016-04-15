@@ -1,4 +1,5 @@
-FROM jenkins:1.642.4
+# FROM jenkins:1.642.4
+FROM jenkins:1.651.1
 # FROM jenkins
 LABEL version="1.9.a"
 
@@ -23,4 +24,4 @@ RUN /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
 # Configure Jenkins
 ############################################
 # Jenkins settings
-COPY config/*.xml ${JENREF}/
+# COPY config/*.xml ${JENREF}/
