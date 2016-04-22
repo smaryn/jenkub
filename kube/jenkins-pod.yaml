@@ -8,6 +8,7 @@ spec:
   containers:
     - name: jenkins
       image: singen/jenkub
+      imagePullPolicy: Always
       ports:
         - name: ui
           containerPort: 8080
