@@ -1,6 +1,6 @@
-# FROM jenkins:1.642.4
-FROM jenkins
-LABEL version="2.0"
+FROM jenkins:1.642.4
+# FROM jenkins
+LABEL version="2.1"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref

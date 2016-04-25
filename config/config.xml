@@ -1,17 +1,62 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <hudson>
   <disabledAdministrativeMonitors/>
   <version>1.642.4</version>
   <numExecutors>2</numExecutors>
-  <mode>NORMAL</mode>
+  <mode>EXCLUSIVE</mode>
   <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
-  <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy"/>
+  <securityRealm class="hudson.security.LDAPSecurityRealm" plugin="ldap@1.11">
+    <server>ldap://ldap.intropro.com.ua:389/</server>
+    <rootDN>dc=intropro,dc=com,dc=ua</rootDN>
+    <inhibitInferRootDN>true</inhibitInferRootDN>
+    <userSearchBase></userSearchBase>
+    <userSearch>uid={0}</userSearch>
+    <groupMembershipStrategy class="jenkins.security.plugins.ldap.FromGroupSearchLDAPGroupMembershipStrategy">
+      <filter></filter>
+    </groupMembershipStrategy>
+    <managerPasswordSecret>utWJOI/z+3o6TI9O2krdIg==</managerPasswordSecret>
+    <disableMailAddressResolver>false</disableMailAddressResolver>
+    <displayNameAttributeName>displayname</displayNameAttributeName>
+    <mailAddressAttributeName>mail</mailAddressAttributeName>
+    <userIdStrategy class="jenkins.model.IdStrategy$CaseInsensitive"/>
+    <groupIdStrategy class="jenkins.model.IdStrategy$CaseInsensitive"/>
+  </securityRealm>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
-  <jdks/>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
+  <jdks>
+    <jdk>
+      <name>JDK8</name>
+      <home></home>
+      <properties>
+        <hudson.tools.InstallSourceProperty>
+          <installers>
+            <hudson.tools.JDKInstaller>
+              <id>jdk-8u77-oth-JPR</id>
+              <acceptLicense>true</acceptLicense>
+            </hudson.tools.JDKInstaller>
+          </installers>
+        </hudson.tools.InstallSourceProperty>
+      </properties>
+    </jdk>
+    <jdk>
+      <name>JDK7</name>
+      <home></home>
+      <properties>
+        <hudson.tools.InstallSourceProperty>
+          <installers>
+            <hudson.tools.JDKInstaller>
+              <id>jdk-7u80-oth-JPR</id>
+              <acceptLicense>true</acceptLicense>
+            </hudson.tools.JDKInstaller>
+          </installers>
+        </hudson.tools.InstallSourceProperty>
+      </properties>
+    </jdk>
+  </jdks>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
@@ -21,14 +66,14 @@
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
           <name>jnlp slave</name>
           <image>jenkinsci/jnlp-slave</image>
-          <privileged>false</privileged>
+          <privileged>true</privileged>
           <alwaysPullImage>false</alwaysPullImage>
           <command></command>
           <args></args>
           <remoteFs>/home/jenkins</remoteFs>
           <instanceCap>2147483647</instanceCap>
           <label>kubernetes</label>
-          <nodeSelector></nodeSelector>
+          <nodeSelector>role=minion</nodeSelector>
           <volumes/>
           <envVars/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
@@ -36,7 +81,8 @@
       <serverUrl>http://big-kube1.ea.intropro.com:8080</serverUrl>
       <skipTlsVerify>true</skipTlsVerify>
       <namespace>default</namespace>
-      <jenkinsUrl>http://jenkins.kube.ea.intropro.com:38080/</jenkinsUrl>
+      <jenkinsUrl>http://jenkins:8080/</jenkinsUrl>
+      <credentialsId>f44e7083-2ca3-40df-a4d4-6db8ef56c259</credentialsId>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
     </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
