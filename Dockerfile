@@ -1,6 +1,6 @@
 FROM jenkins:1.642.4
 # FROM jenkins
-LABEL version="2.1"
+LABEL version="2.2"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
@@ -23,4 +23,4 @@ RUN /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
 # Configure Jenkins
 ############################################
 # Jenkins settings
-COPY config/*.xml ${JENREF}/
+# COPY config/*.xml ${JENREF}/
