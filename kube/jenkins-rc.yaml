@@ -27,9 +27,7 @@ spec:
           readOnly: false
       - name: nfskube3vol1
         nfs:
-          # Use real NFS server address here.
           server: big-kube3
-          # Use real NFS server export directory.
           path: "/var/lib/docker/xport"
           readOnly: false
       containers:
@@ -47,5 +45,4 @@ spec:
             # Where to mount the volume.
             mountPath: "/var/jenkins_home"
           - name: nfskube3vol1
-            # Where to mount the volume.
             mountPath: "/var/log"
