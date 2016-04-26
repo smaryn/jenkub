@@ -17,11 +17,35 @@ spec:
         name: jenkins
         role: leader
     spec:
+      volumes:
+      - name: nfskube2vol1
+        nfs:
+          # Use real NFS server address here.
+          server: big-kube2
+          # Use real NFS server export directory.
+          path: "/var/lib/docker/xport"
+          readOnly: false
+      - name: nfskube3vol1
+        nfs:
+          # Use real NFS server address here.
+          server: big-kube3
+          # Use real NFS server export directory.
+          path: "/var/lib/docker/xport"
+          readOnly: false
       containers:
       - name: jenkins
         image: singen/jenkub
+        imagePullPolicy: Always
         ports:
         - name: ui
           containerPort: 8080
         - name: descover
           containerPort: 50000
+        volumeMounts:
+          # 'name' must match the volume name below.
+          - name: nfskube2vol1
+            # Where to mount the volume.
+            mountPath: "/var/jenkins_home"
+          - name: nfskube3vol1
+            # Where to mount the volume.
+            mountPath: "/var/log"
