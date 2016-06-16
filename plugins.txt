@@ -9,6 +9,7 @@ console-column-plugin
 credentials
 credentials-binding
 cron_column
+custom-view-tabs
 dashboard-view
 disk-usage
 docker-plugin
@@ -43,6 +44,7 @@ rebuild
 ruby-runtime
 saferestart
 scm-api
+sonar
 thinBackup
 timestamper
 token-macro

@@ -18,17 +18,17 @@ spec:
         role: leader
     spec:
       volumes:
-      - name: nfskube2vol1
+      - name: nasjenkins
         nfs:
           # Use real NFS server address here.
-          server: big-kube2
+          server: nas
           # Use real NFS server export directory.
-          path: "/var/lib/docker/xport"
+          path: "/big-kube1/kube/pv/jenkins"
           readOnly: false
-      - name: nfskube3vol1
+      - name: nas2backup
         nfs:
-          server: big-kube3
-          path: "/var/lib/docker/xport"
+          server: nas2
+          path: "/big-kube2/kube/backup/jenkins"
           readOnly: false
       containers:
       - name: jenkins
@@ -41,8 +41,8 @@ spec:
           containerPort: 50000
         volumeMounts:
           # 'name' must match the volume name below.
-          - name: nfskube2vol1
+          - name: nasjenkins
             # Where to mount the volume.
             mountPath: "/var/jenkins_home"
-          - name: nfskube3vol1
+          - name: nas2backup
             mountPath: "/var/log"
