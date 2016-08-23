@@ -1,6 +1,6 @@
 # FROM jenkins:1.642.4
 FROM jenkins
-LABEL version="3.2"
+LABEL version="3.3.a"
 
 # ENV TERM=xterm JENHOME=/var/jenkins_home JENREF=/usr/share/jenkins/ref
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
@@ -13,8 +13,8 @@ RUN apt-get update && \
 
 # USER jenkins
 COPY plugins.txt ${JENKINS_HOME}/plugins.txt
-RUN chown -R jenkins:root ${JENKINS_HOME} && \
-    sudo -i -u jenkins /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
+RUN chown -R jenkins:root ${JENKINS_HOME}
+    # sudo -i -u jenkins /usr/local/bin/plugins.sh ${JENKINS_HOME}/plugins.txt
 
 # Adding default Jenkins Jobs
 # COPY jobs/dsl-seed-job.xml ${JENREF}/jobs/dsl-seed-job/config.xml
