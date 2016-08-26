@@ -6,7 +6,6 @@ LABEL version="3.3.e"
 ENV TERM=xterm JENREF=/usr/share/jenkins/ref
 USER root
 RUN apt-get update && \
-    apt-get -y upgrade && \
     apt-get install -y dnsutils htop mc net-tools sudo && \
     echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers && \
     rm -rf /var/lib/apt/lists/*
