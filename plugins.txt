@@ -14,6 +14,7 @@ dashboard-view
 disk-usage
 docker-plugin
 docker-build-publish
+docker-build-step
 docker-commons
 doclinks
 durable-task
@@ -26,8 +27,8 @@ gitlab-hook
 gitlab-logo
 gitlab-plugin
 greenballs
-http-post
 groovy
+http-post
 icon-shim
 jquery
 job-dsl
@@ -44,7 +45,9 @@ rebuild
 ruby-runtime
 saferestart
 scm-api
+slave-setup
 sonar
+ssh2easy
 thinBackup
 timestamper
 token-macro
